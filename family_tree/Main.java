@@ -18,41 +18,40 @@ public class Main {
 
         FamilyTree familyTree = new FamilyTree();
 
-        Human human1 = new Human(Gender.Male,"Ivan","Ivanov");
-        Human human2 = new Human(Gender.Female,"Maria","Ivanova");
+        Human human1 = new Human(Gender.Male,"Alexander","Smirnov");
+        Human human2 = new Human(Gender.Female,"Olga","Smirnova");
         familyTree.addFamilyMember(human1);
         familyTree.addFamilyMember(human2);
         familyTree.setWedding(human1, human2);
 
-        Human human3 = new Human(Gender.Male, "Peter", "Petrov");
-        Human human4 = new Human(Gender.Female, "Elena", "Petrova");
+        Human human3 = new Human(Gender.Male, "Konstantin", "Smirnov");
+        Human human4 = new Human(Gender.Female, "Anna", "Smirnova");
         familyTree.addFamilyMember(human3);
         familyTree.addFamilyMember(human4);
         familyTree.setWedding(human3, human4);
 
-        Human human5 = new Human(Gender.Male,"Ivanushka","Ivanov");
-        Human human6 = new Human(Gender.Female,"Alenushka","Petrova");
+        Human human5 = new Human(Gender.Male,"Yuri","Smirnov");
+        Human human6 = new Human(Gender.Female,"Maria","Smirnova");
 
-        human5.setFather(human1);
-        human5.setMother(human2);
-        human6.setFather(human3);
-        human6.setMother(human4);
+        human3.setFather(human1);
+        human3.setMother(human2);
+        human1.setFather(human5);
+        human1.setMother(human6);
 
         familyTree.addFamilyMember(human5);
         familyTree.addFamilyMember(human6);
         familyTree.setWedding(human5, human6);
 
-        human1.setBirthDate(LocalDate.of(1921,1,1));
-        human2.setBirthDate(LocalDate.of(1922,2,2));
-        human3.setBirthDate(LocalDate.of(1923,3,3));
-        human4.setBirthDate(LocalDate.of(1924,4,4));
-        human5.setBirthDate(LocalDate.of(1945,5,5));
-        human6.setBirthDate(LocalDate.of(1946,6,6));
-
-        Human grandMother = new Human(Gender.Female,"Varvara", "Ivanova",LocalDate.of(1900,1,1));
-        grandMother.addChild(human1);
-        grandMother.setDeathDate(LocalDate.of(2000,1,1));
-        familyTree.addFamilyMember(grandMother);
+        human1.setBirthDate(LocalDate.of(1967,12,8));
+        human2.setBirthDate(LocalDate.of(1970,6,22));
+        human3.setBirthDate(LocalDate.of(1995,1,16));
+        human4.setBirthDate(LocalDate.of(1997,10,21));
+        human5.setBirthDate(LocalDate.of(1939,5,5));
+        human6.setBirthDate(LocalDate.of(1943,6,6));
+        human1.addChild(human3);
+        human2.addChild(human3);
+      human5.addChild(human1);
+      human6.addChild(human1);
 
         return familyTree;
     }
